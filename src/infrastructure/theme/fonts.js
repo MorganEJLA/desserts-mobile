@@ -3,7 +3,6 @@ export const fonts = {
   heading: 'Truculenta_700Bold', // Expressive display font for logos & headings
   monospace: 'SpaceMono_400Regular', // Stylish monospaced font for any coding elements
 }
-
 export const fontWeights = {
   regular: 400,
   medium: 500,
