@@ -14,16 +14,14 @@ import { SafeArea } from './src/components/utility/safe-area.component.js'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { MaterialIcons, FontAwesome } from '@expo/vector-icons'
-
+import { RestaurantsContextProvider } from './src/services/restaurants/restaurants.context.js'
 const Tab = createBottomTabNavigator()
-
 
 const TAB_ICON = {
   Restaurants: { lib: MaterialIcons, name: 'bakery-dining' },
   Settings: { lib: MaterialIcons, name: 'settings' },
   Map: { lib: FontAwesome, name: 'map-signs' },
 }
-
 
 const screenOptions = ({ route }) => {
   const { lib: IconComponent, name } = TAB_ICON[route.name]
@@ -78,9 +76,11 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <NavigationContainer>
-          <MyTabs />
-        </NavigationContainer>
+        <RestaurantsContextProvider>
+          <NavigationContainer>
+            <MyTabs />
+          </NavigationContainer>
+        </RestaurantsContextProvider>
         <ExpoStatusBar style="auto" />
       </ThemeProvider>
     </>
