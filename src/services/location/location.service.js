@@ -1,5 +1,5 @@
 import camelize from 'camelize'
-import { locations } from './locations.mock.js'
+import { locations } from './location.mock.js'
 
 export const locationRequest = () => {
   return new Promise(
