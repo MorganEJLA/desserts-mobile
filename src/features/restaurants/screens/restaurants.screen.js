@@ -1,9 +1,8 @@
 import React, { useContext } from 'react'
-import { View } from 'react-native'
 
 import { FlatList } from 'react-native'
 import styled from 'styled-components/native'
-import { ActivityIndicator } from 'react-native'
+import { ActivityIndicator, Colors } from 'react-native-paper'
 import { SafeArea } from '../../../components/utility/safe-area.component'
 import { RestaurantInfoCard } from '../components/restaurant-info-card.component'
 import { Spacer } from '../../../components/spacer/spacer.component'
@@ -39,7 +38,7 @@ export const RestaurantsScreen = () => {
         </LoadingContainer>
       )}
       <Search />
-      <FlatList
+      <RestaurantList
         data={restaurants}
         renderItem={({ item }) => {
           return (

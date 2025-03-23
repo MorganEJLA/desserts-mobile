@@ -10,6 +10,8 @@ const SearchContainer = styled.View`
 export const Search = () => {
   const { keyword, search } = useContext(LocationContext)
   const [searchKeyword, setSearchKeyword] = useState(keyword)
+
+  
   return (
     <SearchContainer>
       <Searchbar
@@ -19,9 +21,6 @@ export const Search = () => {
           search(searchKeyword)
         }}
         onChangeText={(text) => {
-          if (!text.length) {
-            return
-          }
           setSearchKeyword(text)
         }}
       />

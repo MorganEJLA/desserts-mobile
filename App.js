@@ -15,6 +15,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { MaterialIcons, FontAwesome } from '@expo/vector-icons'
 import { RestaurantsContextProvider } from './src/services/restaurants/restaurants.context.js'
+import { LocationContextProvider } from './src/services/location/location.context.js'
 const Tab = createBottomTabNavigator()
 
 const TAB_ICON = {
@@ -76,12 +77,14 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <RestaurantsContextProvider>
-          <NavigationContainer>
-            <MyTabs />
-          </NavigationContainer>
-        </RestaurantsContextProvider>
-        <ExpoStatusBar style="auto" />
+        <LocationContextProvider>
+          <RestaurantsContextProvider>
+            <NavigationContainer>
+              <MyTabs />
+            </NavigationContainer>
+          </RestaurantsContextProvider>
+          <ExpoStatusBar style="auto" />
+        </LocationContextProvider>
       </ThemeProvider>
     </>
   )
