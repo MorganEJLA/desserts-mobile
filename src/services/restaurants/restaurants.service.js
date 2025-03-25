@@ -1,14 +1,21 @@
 import { mockImages, mocks } from './mock'
 import camelize from 'camelize'
 export const restaurantsRequest = (location) => {
+  console.log('Available mock locations:', Object.keys(mocks)) // Logs all keys in mocks
+  console.log('Requested location:', location) // Logs the location being searched for
+
   return new Promise((resolve, reject) => {
     const mock = mocks[location]
+
     if (!mock) {
+      console.log('No matching location found in mocks!') // Debugging log
       reject('No location found')
     }
+
     resolve(mock)
   })
 }
+
 export const restaurantsTransform = ({ results = [] }) => {
   const mappedResults = results.map((restaurant) => {
     return {
