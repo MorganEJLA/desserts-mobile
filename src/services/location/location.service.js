@@ -16,9 +16,7 @@ export const locationTransform = (result) => {
   const formattedResponse = camelize(result)
   const { geometry = {} } = formattedResponse.results[0]
 
-  if (!geometry.location) {
-    throw new Error('Missing geometry location data')
-  }
+  const { lat, lng } = geometry.location
 
   return { lat, lng }
 }

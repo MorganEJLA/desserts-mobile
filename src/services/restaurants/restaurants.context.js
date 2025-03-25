@@ -5,11 +5,8 @@ import React, {
   useEffect,
   useMemo,
 } from 'react'
-import {
-  restaurantsRequest,
-  restaurantsTransform,
-} from './restaurants.service.js'
-import { LocationContext } from '../location/location.context.js'
+import { restaurantsRequest, restaurantsTransform } from './restaurants.service'
+import { LocationContext } from '../location/location.context'
 export const RestaurantsContext = createContext()
 
 export const RestaurantsContextProvider = ({ children }) => {
@@ -36,10 +33,13 @@ export const RestaurantsContextProvider = ({ children }) => {
   }
   useEffect(() => {
     if (location) {
+      console.log(location)
       const locationString = `${location.lat}, ${location.lng}`
+
       retrieveRestaurants(locationString)
     }
   }, [location])
+
   return (
     <RestaurantsContext.Provider value={{ restaurants, isLoading, error }}>
       {children}
