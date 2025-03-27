@@ -52,7 +52,7 @@ export const RestaurantDetailScreen = ({ route }) => {
           title="Confections"
           left={(props) => <List.Icon {...props} icon="candy" />}
           expanded={confectionsExpanded}
-          onPress={() => confectionsExpanded(!confectionsExpanded)}
+          onPress={() => setConfectionsExpanded(!confectionsExpanded)}
         >
           <List.Item title="Brigadeiro" />
           <List.Item title="Torrone" />
